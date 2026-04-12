@@ -1,64 +1,56 @@
 <title>KIS Student Academic Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <style>
+        /* Reset and prevent scrolling on the outer container */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden; 
+            background-color: #f0f2f5; /* Light grey background for desktop view */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
 
-<style>
-  html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow: hidden; /* removes scrolling for app-like feel */
-    background-color: #000;
-  }
+        .app-container {
+            width: 100%;
+            height: 100%;
+            max-width: 480px; /* Limits width on desktop to look like a phone */
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            position: relative;
+        }
 
-  .app-container {
-    width: 100vw;
-    height: 100vh;
-    max-width: 480px; /* typical mobile width */
-    margin: 0 auto;
-    overflow: hidden;
-  }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
 
-  iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
-
-  /* Hide on larger screens (optional strict mobile only) */
-  @media (min-width: 769px) {
-    body::before {
-      content: "Please open on a mobile device";
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      font-size: 18px;
-      color: #333;
-      background: #fff;
-    }
-
-    .app-container {
-      display: none;
-    }
-  }
-</style>
+        /* Desktop specific styling */
+        @media (min-width: 769px) {
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #1a1a1a; /* Darker background for desktop focus */
+            }
+            .app-container {
+                height: 90vh; /* Show it as a "window" on desktop */
+                border-radius: 20px;
+                overflow: hidden;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
 <div class="app-container">
-  <iframe 
-    src="https://script.google.com/macros/s/AKfycbxOoxydIArLjREWTunPQsnLp6HhFwImiBV9is8BOqzV6IWSpBvZ0lseP2srvPTISDyc/exec"
-    allowfullscreen>
-  </iframe>
+    <iframe 
+        src="https://script.google.com/macros/s/AKfycbxOoxydIArLjREWTunPQsnLp6HhFwImiBV9is8BOqzV6IWSpBvZ0lseP2srvPTISDyc/exec" 
+        allow="geolocation; microphone; camera">
+    </iframe>
 </div>
-
-<script>
-window.onload = function() {
-  const iframe = document.querySelector('iframe');
-  if (iframe.requestFullscreen) {
-    iframe.requestFullscreen().catch(() => {});
-  }
-};
-</script>
