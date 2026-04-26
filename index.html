@@ -3,42 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <title>KIS Academic Information Portal</title>
-    
+
     <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/u/0/d/1Ku01W6j1sLlJsLX3j3iyBJvjIIdcozAP">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         html, body {
             margin: 0;
             padding: 0;
-            height: 100%;
             width: 100%;
-            overflow: hidden; 
-            background-color: #ffffff; 
+            min-height: 100%;
+            background-color: #ffffff;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow-x: hidden;
+        }
+
+        body {
+            min-height: 100vh;
+            min-height: 100dvh; /* Better support for mobile browsers */
         }
 
         .app-container {
-            width: 100vw;
-            height: 150vh;
+            width: 100%;
+            min-height: 100vh;
+            min-height: 100dvh;
             margin: 0;
             padding: 0;
             background-color: #ffffff;
             position: relative;
+            overflow: hidden;
         }
 
         iframe {
             width: 100%;
-            height: 150%;
+            height: 100vh;
+            height: 100dvh;
+            min-height: 100vh;
+            min-height: 100dvh;
             border: none;
             display: block;
+            background-color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            html,
+            body,
+            .app-container,
+            iframe {
+                width: 100%;
+                min-height: 100vh;
+                min-height: 100dvh;
+            }
+
+            .app-container {
+                overflow: visible;
+            }
         }
 
         @media (min-width: 769px) {
             .app-container {
-                max-width: none; 
-                height: 150vh;
+                max-width: none;
+                min-height: 100vh;
+                min-height: 100dvh;
                 border: none;
                 border-radius: 0;
             }
@@ -47,12 +78,14 @@
 </head>
 <body>
 
-<div class="app-container">
-    <iframe 
-        src="https://script.google.com/macros/s/AKfycbxOoxydIArLjREWTunPQsnLp6HhFwImiBV9is8BOqzV6IWSpBvZ0lseP2srvPTISDyc/exec" 
-        allow="geolocation; microphone; camera">
-    </iframe>
-</div>
+    <div class="app-container">
+        <iframe
+            src="https://script.google.com/macros/s/AKfycbxOoxydIArLjREWTunPQsnLp6HhFwImiBV9is8BOqzV6IWSpBvZ0lseP2srvPTISDyc/exec"
+            allow="geolocation; microphone; camera"
+            loading="lazy"
+            title="KIS Academic Information Portal">
+        </iframe>
+    </div>
 
 </body>
 </html>
